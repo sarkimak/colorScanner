@@ -24,7 +24,7 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void toHome(View view){
-        Intent i = new Intent(ResultActivity.this,MainActivity.class);
+        Intent i = new Intent(ResultActivity.this,MainActivity2.class);
         i.putExtra("activity","results");
         i.putExtra("button","home");
         finish();
