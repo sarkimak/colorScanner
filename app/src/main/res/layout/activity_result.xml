@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCA06A"
+    tools:context=".ResultActivity">
+
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:backgroundTint="#000000"
+        android:onClick="toCamera"
+        android:text="SCAN ANOTHER"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-49dp" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:backgroundTint="#000000"
+        android:onClick="toHome"
+        android:text="HOME"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="150dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp">
+
+        <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
+        android:background="#FFFFFF"
+            android:layout_gravity="bottom"
+        app:layout_constraintBottom_toTopOf="@id/scanButton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeButton"
+        tools:layout_editor_absoluteX="32dp" >
+        </View>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detectedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:paddingTop="5dp"
+                android:text="Color Detected:"
+                android:textSize="40sp"/>
+
+            <TextView
+                android:id="@+id/detectedColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="0dp"
+                android:text="BEIGE"
+                android:textColor="#CCA06A"
+                android:textStyle="bold"
+                android:textSize="80sp"/>
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginBottom="3dp"
+                android:backgroundTint="#CCA06A"
+                android:onClick="saveScan"
+                android:text="SAVE"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
