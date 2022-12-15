@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,15 +16,13 @@ public class MainActivity extends AppCompatActivity {
     private static final int pic_id = 123;
     Button camera_open_id;
     ImageView click_img_id;
-    Button home_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        camera_open_id = findViewById(R.id.camera_button);
+        camera_open_id = (Button)findViewById(R.id.camera_button);
         click_img_id = findViewById(R.id.img);
-        home_button =findViewById(R.id.home_button);
 
         // launch camera / image
         camera_open_id.setOnClickListener(v -> {
@@ -31,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
             // Start the activity with camera_intent, and request pic id
             startActivityForResult(camera_intent, pic_id);
         });
-        home_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openAvtivity2();
+
+        if(getIntent().getStringExtra("activity").equals("results")){
+            if(getIntent().getStringExtra("button").equals("camera")){
+                camera_open_id.performClick();
             }
-        });
+        }
     }
 
     // retrieve the image
@@ -46,12 +46,17 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == pic_id) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             click_img_id.setImageBitmap(photo);
+            setContentView(R.layout.activity_main);
+            Toast.makeText(getApplicationContext(), "Scanning...", Toast.LENGTH_LONG).show();
+            try {
+                Thread.sleep(3000);
+                Intent i = new Intent(MainActivity.this,ResultActivity.class);
+                finish();
+                startActivity(i);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
-    }
-
-    public void openAvtivity2(){
-        Intent intent = new Intent(this, MainActivity2.class);
-        startActivity(intent);
     }
 }
 

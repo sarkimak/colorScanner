@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity2">
 
 
     <Button
         android:id="@+id/to_favorite_button"
         android:layout_width="wrap_content"
+        style="@style/Widget.MaterialComponents.Button"
+        app:icon="@drawable/ic_baseline_star_24"
         android:layout_height="82dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -25,6 +28,8 @@
     <Button
         android:id="@+id/to_recent_button"
         android:layout_width="wrap_content"
+        style="@style/Widget.MaterialComponents.Button"
+        app:icon="@drawable/ic_restore_24"
         android:layout_height="76dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -41,6 +46,8 @@
     <Button
         android:id="@+id/to_camera_button"
         android:layout_width="181dp"
+        style="@style/Widget.MaterialComponents.Button"
+        app:icon="@android:drawable/ic_search_category_default"
         android:layout_height="77dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
