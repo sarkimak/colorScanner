@@ -5,3 +5,6 @@ When running the emulator it opens to the android camera with a provided image t
 The application scans the area / object and provides the result of the most prominent color. (t2)
 From there the user can save the scan, return to the home screen, or scan another object. (t3)
 Earlier iterations of the project desired possibilities of a matching function or a unique palette system within favorites, but time constraints and workloads of other courses for team members prevented those extra functions. 
+
+Sources:
+inspirtation / guidance for camera launch: https://stackoverflow.com/questions/13977245/android-open-camera-from-button 
