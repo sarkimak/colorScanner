@@ -1,15 +1,19 @@
 package com.example.colorscanner;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == pic_id) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             click_img_id.setImageBitmap(photo);
+            detectColor(photo);
             setContentView(R.layout.activity_main);
             Toast.makeText(getApplicationContext(), "Scanning...", Toast.LENGTH_LONG).show();
             try {
@@ -57,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    protected void detectColor(Bitmap photo){
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        SharedPreferences.Editor editor = pref.edit();
+
+        editor.putString("color_detected", "#ff3333");
+        editor.apply();
     }
 }
 

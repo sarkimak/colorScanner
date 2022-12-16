@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EDECEA"
+    android:background="@color/detected"
     tools:context=".ResultActivity">
 
     <Button
@@ -25,7 +26,6 @@
     <Button
         android:id="@+id/homeButton"
         style="@style/Widget.MaterialComponents.Button"
-        app:icon="@drawable/ic_hom_50"
         android:layout_width="282dp"
         android:layout_height="82dp"
         android:layout_marginTop="16dp"
@@ -33,6 +33,7 @@
         android:onClick="toHome"
         android:text="HOME"
         android:textSize="28sp"
+        app:icon="@drawable/ic_hom_50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,26 +41,25 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="150dp"
-        android:layout_marginBottom="150dp"
         android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp">
+        android:layout_marginBottom="150dp">
 
         <View
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginLeft="0dp"
-        android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-        app:layout_constraintBottom_toTopOf="@id/scanButton"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/homeButton"
-        tools:layout_editor_absoluteX="32dp" >
-        </View>
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@id/scanButton"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeButton"
+            tools:layout_editor_absoluteX="32dp"></View>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayout"
@@ -86,7 +86,7 @@
                 android:layout_height="76dp"
                 android:paddingTop="0dp"
                 android:text="BEIGE"
-                android:textColor="#D1BBA6"
+                android:textColor="@color/detected"
                 android:textSize="65sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/saveButton"
@@ -99,7 +99,6 @@
             <Button
                 android:id="@+id/saveButton"
                 style="@style/Widget.MaterialComponents.Button"
-                app:icon="@drawable/ic_save_24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -107,6 +106,7 @@
                 android:onClick="saveScan"
                 android:text="SAVE"
                 android:textSize="28sp"
+                app:icon="@drawable/ic_save_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
