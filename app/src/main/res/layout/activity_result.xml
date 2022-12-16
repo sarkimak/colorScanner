@@ -87,7 +87,7 @@
                 android:paddingTop="0dp"
                 android:text="BEIGE"
                 android:textColor="@color/detected"
-                android:textSize="65sp"
+                android:textSize="40sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/saveButton"
                 app:layout_constraintEnd_toEndOf="parent"

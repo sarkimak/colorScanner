@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.palette.graphics.Palette;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,15 +53,10 @@ public class MainActivity extends AppCompatActivity {
             click_img_id.setImageBitmap(photo);
             detectColor(photo);
             setContentView(R.layout.activity_main);
-            Toast.makeText(getApplicationContext(), "Scanning...", Toast.LENGTH_LONG).show();
-            try {
-                Thread.sleep(3000);
-                Intent i = new Intent(MainActivity.this,ResultActivity.class);
-                finish();
-                startActivity(i);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            Toast.makeText(getApplicationContext(), "Scanning...", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(MainActivity.this,ResultActivity.class);
+            finish();
+            startActivity(i);
         }
     }
 
@@ -68,7 +64,11 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         SharedPreferences.Editor editor = pref.edit();
 
-        editor.putString("color_detected", "#ff3333");
+        Palette palette = Palette.from(photo).generate();
+        int dominantColor = palette.getDominantColor(Color.BLACK);
+        String color = String.format("#%06X", (0xFFFFFF & dominantColor));
+
+        editor.putString("color_detected", color);
         editor.apply();
     }
 }
